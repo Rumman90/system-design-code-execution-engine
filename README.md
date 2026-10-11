@@ -229,6 +229,7 @@ This folder contains a complete reference implementation and deep-dive documenta
 ```text
 system-design-code-execution-engine/
 ├── README.md                              # This primary overview guide
+├── LICENSE                                # MIT License
 ├── docs/
 │   ├── architecture.md                    # Deep dive into components and worker flow
 │   ├── isolation_sandboxing.md            # Namespaces, cgroups, seccomp & Firecracker vs Docker
@@ -250,3 +251,10 @@ If asked to design LeetCode or a Code Execution Engine in an interview, remember
 2. **Solve latency with Warm Pools:** Pre-spin containers or use memory snapshots so cold start is eliminated.
 3. **Hard enforcement of limits:** Kill memory hogs via cgroup OOM and infinite loops via watchdog timers (`SIGKILL`).
 4. **Airgap the network:** Isolate the sandbox's network namespace (`--net=none`) so malicious scripts cannot steal cloud tokens or scan internal networks.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
