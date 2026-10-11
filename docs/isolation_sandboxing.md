@@ -90,10 +90,10 @@ Which sandboxing technology should you pick for an RCE platform?
 
 | Technology | Isolation Type | Boot Overhead | Security Level | Best Used For |
 | :--- | :--- | :--- | :--- | :--- |
-| **Vanilla Docker** | Shared Kernel (cgroups + namespaces) | ~1,000ms | ⚠️ Medium (Kernel exploit = Host takeover) | Internal CI/CD pipelines, trusted developers |
-| **gVisor (Google)** | User-space Kernel (Intercepts syscalls in Go) | ~150ms | 🛡️ High (Simulates kernel, no direct host syscalls) | Google Cloud Run, multi-tenant web apps |
-| **Firecracker (AWS)** | MicroVM (KVM hardware virtualization) | **~5ms** | 🔒 Maximum (Independent isolated Linux kernel) | AWS Lambda, Fly.io, Untrusted Public Code Run |
-| **nsjail (Google)** | Lightweight Linux jail (Chroot + Seccomp + cgroups) | **< 2ms** | 🛡️ High (Ultra fast, lightweight wrapper) | Competitive programming, LeetCode style judges |
+| **Vanilla Docker** | Shared Kernel (cgroups + namespaces) | ~1,000ms | Medium (Kernel exploit = Host takeover) | Internal CI/CD pipelines, trusted developers |
+| **gVisor (Google)** | User-space Kernel (Intercepts syscalls in Go) | ~150ms | High (Simulates kernel, no direct host syscalls) | Google Cloud Run, multi-tenant web apps |
+| **Firecracker (AWS)** | MicroVM (KVM hardware virtualization) | **~5ms** | Maximum (Independent isolated Linux kernel) | AWS Lambda, Fly.io, Untrusted Public Code Run |
+| **nsjail (Google)** | Lightweight Linux jail (Chroot + Seccomp + cgroups) | **< 2ms** | High (Ultra fast, lightweight wrapper) | Competitive programming, LeetCode style judges |
 
 ### The Winning Production Architecture:
 * For **LeetCode / Single Script Judges:** Use **nsjail** or **Firecracker** because their startup overhead is practically zero (< 5ms) and they provide rock-solid isolation.
