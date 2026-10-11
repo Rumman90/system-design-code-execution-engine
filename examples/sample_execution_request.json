@@ -1,0 +1,22 @@
+{
+  "request_id": "req_8849182",
+  "client_id": "leetcode_user_9921",
+  "language": "python",
+  "version": "3.12",
+  "code": "import sys\n\ndef solve():\n    lines = sys.stdin.read().splitlines()\n    if not lines: return\n    a, b = map(int, lines[0].split())\n    print(a + b)\n\nsolve()\n",
+  "stdin": "15 27\n",
+  "limits": {
+    "timeout_ms": 1500,
+    "memory_mb": 256,
+    "max_output_kb": 16,
+    "network_enabled": false
+  },
+  "expected_response": {
+    "status": "SUCCESS",
+    "exit_code": 0,
+    "stdout": "42\n",
+    "stderr": "",
+    "execution_time_ms": 28.4,
+    "memory_peak_kb": 12840
+  }
+}
